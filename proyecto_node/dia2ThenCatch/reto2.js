@@ -1,3 +1,4 @@
+const fs = require('fs/promises')
 const readline = require("readline")
 function pregunta(pregunta){
     const question = new Promise((resolve, reject) => {
