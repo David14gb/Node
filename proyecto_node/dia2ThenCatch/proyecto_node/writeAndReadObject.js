@@ -1,9 +1,14 @@
+const { rejects } = require('assert');
 const fs = require('fs/promises')
 
-function writeAndRead(objeto){
-    fs.writeFile('personaCreada.json', JSON.stringify(objeto))
+
+
+
+function writeAndRead(path, objeto){
+
+    fs.writeFile(path, JSON.stringify(objeto))
     .then( () => {
-        return fs.readFile('personaCreada.json', 'utf8')
+        return fs.readFile(path, 'utf8')
     })
     .then(obje => {
         console.log(JSON.parse(obje));
@@ -13,4 +18,19 @@ function writeAndRead(objeto){
     })
 }
 
-module.exports = {writeAndRead};
+
+//Async
+
+async function writeAndRead1(path, obj){
+
+    try {
+        await fs.writeFile(path, JSON.stringify(obj))
+        let nuevo = await fs.readFile(path, 'utf8')
+        console.log(JSON.parse(nuevo));
+    } catch(error){
+        console.log(error);
+    }
+}
+
+
+module.exports = {writeAndRead, writeAndRead1};
