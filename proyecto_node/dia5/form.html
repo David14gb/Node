@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <!-- Propio -->
+    <link rel="stylesheet" href="form.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://fondosmil.com/fondo/14710.jpg" type="image/x-icon">
+   <!-- Javascript -->
+    <script src="profesional.js"></script>
+    <script src="form.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario -->
+        <form>
+            <div class="formulariopadre">
+                <h1>Formulario</h1>
+                    <div class="formulario">
+                        <label for="name">Nombre:</label>
+                        <input type="text" placeholder="Name" id="name" class="formu"><br>
+                        <label for="age">Edad:</label>
+                        <input type="text" placeholder="Edad" id="age" class="formu"><br> 
+                        <label for="genre">Género:</label>
+                        <input type="text" placeholder="Género" id="genre" class="formu"><br> 
+                        <label for="weight">Weight:</label>
+                        <input type="text" placeholder="Weight" id="weight" class="formu"><br>
+                        <label for="height">Height:</label>
+                        <input type="text" placeholder="Height" id="height" class="formu"><br>
+                        <label for="id">Posición (ID):</label>
+                        <input type="number" placeholder="Id" id="id" class="formu"><br>
+                        
+                        <button type="button" onclick="getProfes()" class="formu">Mostrar</button>
+                        <button type="button" onclick="postProfes()" class="formu">Crear</button>
+                        <button type="button" onclick="putProfes()" class="formu">Actualizar</button>
+                        <button type="button" onclick="deleteProfes()" class="formu">Eliminar</button>
+                    </div>
+            </div>
+        </form>
+    <!-- Mostrar profesionales -->
+        <div class="mostrar__profes" id="profes">
+            <div class="mostrar" id="todos"></div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

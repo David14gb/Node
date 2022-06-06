@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <!-- Propio -->
+    <link rel="stylesheet" href="pokemon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/1510267023170932738/DU17z4wo_400x400.jpg" type="image/x-icon">
+   <!-- Javascript -->
+    <script src="pokemon.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario -->
+        <form>
+            <div class="formulariopadre">
+                <!-- <h1>Pokemon</h1> -->
+                    <div class="formulario">
+                        <!-- <label for="nombrePokemon">Nombre:</label> -->
+                        <input type="text" id="pokemonName" placeholder="Pokemon name or id">
+
+                        
+                        <button type="button" onclick="insertPokemon()" class="formu" id="buscarPokemon">Mostrar</button>
+
+                        <section class="app" id="app">
+
+                        </section>
+                    </div>
+            </div>
+        </form>
+    <!-- Mostrar pokemon -->
+        <div class="pokemon" id="pokemon">
+            <table>
+                <tr>
+                    <td id="nombre__pokemon">Nombre</td>
+                </tr>
+                <tr>
+                    <td id="id__pokemon">ID</td>
+                </tr>
+                <tr>
+                    <td id="habilidad__pokemon">Primera Habilidad</td>
+                </tr>
+                <tr>
+                    <td id="habilidad__pokemon2">Segunda Habilidad</td>
+                </tr>
+                <tr>
+                    <td id="tipo__pokemon">Pokemon tipo</td>
+                </tr>
+                <tr>
+                    <td id="pokemon__imagen">Tu Pokemon es:</td>
+                </tr>
+            </table>
+            <div class="mostrar" id="todos"></div>
+
+        </div>
+    
+    </div>
+    
+</body>
+</html>

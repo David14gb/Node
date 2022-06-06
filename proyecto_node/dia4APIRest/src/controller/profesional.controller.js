@@ -1,4 +1,3 @@
-const { off } = require("../app");
 const {Professional} = require("../models/profesional")
 
 
