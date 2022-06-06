@@ -8,7 +8,7 @@ let url = `https://pokeapi.co/api/v2/pokemon/`
 function insertPokemon(){
     let pokemon = document.getElementById('pokemonName').value.toLowerCase()
     // Window para hacer una petición a una página web
-    window.fetch(`${url}${pokemon}`)
+    fetch(`${url}${pokemon}`)
     .then(response => {
         if(response.status === 404){
             alert('Este pokemon no existe')
@@ -22,22 +22,29 @@ function insertPokemon(){
         // For in por ser un objeto json y meterlos en un array para poder recorrerlo
         // result.push([información , json[información]])
         // para luego poder utilizar los result[0][1] y poder tratarlo como array
+        console.log(responseJSON);
+        // for(let pokemonInfo in responseJSON){
+        //     result.push([pokemonInfo, responseJSON[pokemonInfo]])
+        // }
 
-        for(let pokemonInfo in responseJSON){
-            result.push([pokemonInfo, responseJSON[pokemonInfo]])
-        }
+        let habilidades = responseJSON.abilities;
+        let name = responseJSON.species.name;
+        let idPokemon = responseJSON.id;
+        let type = responseJSON.types[0].type.name;
+        let imagen = responseJSON.sprites.other.home.front_default;
+
         console.log("-------------");
         console.log(result);
         // Nombre
-        document.getElementById('nombre__pokemon').innerHTML = `<div>Nombre: ${result[10][1]}</div>`
+        document.getElementById('nombre__pokemon').innerHTML = `<div>Nombre: ${name}</div>`
         // ID
-        document.getElementById('id__pokemon').innerHTML = `<div>ID: ${result[6][1]}</div>`
+        document.getElementById('id__pokemon').innerHTML = `<div>ID: ${idPokemon}</div>`
         // Imagen
-        document.getElementById('pokemon__imagen').innerHTML = `<img class="imagen__pokemon" src="${result[14][1].other.home.front_default}"alt="Imagen Pokemon"></img>`
+        document.getElementById('pokemon__imagen').innerHTML = `<img class="imagen__pokemon" src="${imagen}"alt="Imagen Pokemon"></img>`
         // Habilidad
-        document.getElementById('habilidad__pokemon').innerHTML = `<div>Primera Habilidad: ${result[0][1][0].ability.name}</div>`
-        document.getElementById('habilidad__pokemon2').innerHTML = `<div>Segunda Habilidad: ${result[0][1][1].ability.name}</div>`
-        document.getElementById('tipo__pokemon').innerHTML = `<div>Pokemon tipo: ${result[16][1][0].type.name}</div>`
+        document.getElementById('habilidad__pokemon').innerHTML = `<div>Primera Habilidad: ${habilidades[0].ability.name}</div>`
+        document.getElementById('habilidad__pokemon2').innerHTML = `<div>Segunda Habilidad: ${habilidades[1].ability.name}</div>`
+        document.getElementById('tipo__pokemon').innerHTML = `<div>Pokemon tipo: ${type}</div>`
         console.log("-------------");
         console.log(result);
         

@@ -45,17 +45,16 @@ function postProfess(request, response){
 
 function putProfess(request, response){
     let respuesta;
+    let id = request.body.id;
     if(profesionales != null){
-        for(let i = 0; i<profesionales.length; i++){
-            if(request.body.id == i){
-                profesionales[i].name = request.body.name;
-                profesionales[i].age = request.body.age;
-                profesionales[i].genre = request.body.genre;
-                profesionales[i].weight = request.body.weight;
-                profesionales[i].height = request.body.height;
-                respuesta = {error:false, codigo:200, mensaje:'Usuario actualizado', resultado:profesionales};
-            }
-        }
+       
+        profesionales[id].name = request.body.name;
+        profesionales[id].age = request.body.age;
+        profesionales[id].genre = request.body.genre;
+        profesionales[id].weight = request.body.weight;
+        profesionales[id].height = request.body.height;
+        respuesta = {error:false, codigo:200, mensaje:'Usuario actualizado', resultado:profesionales};
+
     }else{respuesta = {error:false, codigo:200, mensaje:'El usuario no existe', resultado:profesionales}
     }
     response.send(respuesta)
@@ -66,12 +65,11 @@ function putProfess(request, response){
 function deleteProfess(request, response){
     let respuesta;
     if(profesionales != null){
-        for(let i = 0; i<profesionales.length; i++){
-            if(request.body.id == i){
-                profesionales[i] = null
-                respuesta = {error:false, codigo:200, mensaje:'Usuario borrado', resultado:profesionales};
-            }
-        }
+      
+        profesionales.splice(request.body.id,1)
+        respuesta = {error:false, codigo:200, mensaje:'Usuario borrado', resultado:profesionales};
+            
+        
     }else{
         respuesta = {error:false, codigo:200, mensaje:'El usuario no existe', resultado:profesionales}
     }

@@ -159,9 +159,9 @@ async function deleteProfes(){
         console.log(result);
         if(result.resultado.length > id){
             result.resultado.splice(id, 1);
-            resultado = result.resultado.filter((valor) => {
-                return valor != null
-                })
+            // resultado = result.resultado.filter((valor) => {
+            //     return valor != null
+            //     })
 
                 //     return valor != undefined
             // for(let i = 0; i < result.length; i++){
